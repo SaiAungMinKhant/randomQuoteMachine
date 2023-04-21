@@ -1,0 +1,50 @@
+html, body{
+  margin: 0;
+}
+
+.app{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .box{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    width: 600px;
+    padding: 80px 30px;
+
+    p{
+  font-size: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    span{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    }
+    .group{
+      display: flex;
+      text-align: center;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      button{
+        width: 100px;
+        border: none;
+        color: white;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
