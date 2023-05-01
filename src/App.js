@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./App.scss";
-import {FaTwitterSquare} from 'react-icons/fa';
+import { FaTwitterSquare,FaQuoteLeft } from 'react-icons/fa';
 
 const App = () => {
   const [quotes, setQuotes] = useState({});
@@ -38,6 +38,7 @@ const App = () => {
   return (
     <div className='app' style={{backgroundColor:color}}>
       <div className='box'>
+        <FaQuoteLeft />
         <p>{quotes.content}</p>
         <span>-{quotes.author}</span>
           <div className='group'>
