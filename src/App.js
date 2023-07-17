@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import "./App.scss";
 import { FaTwitterSquare,FaQuoteLeft } from 'react-icons/fa';
 
@@ -9,6 +9,7 @@ const App = () => {
   const Tweet_Text = quotes.content;
   const HASHTAGS_TO_INCLUDE = quotes.author;
   const url = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(Website_URL) + '&text=' + encodeURIComponent(Tweet_Text) + '&hashtags=' + encodeURIComponent(HASHTAGS_TO_INCLUDE);
+  const buttonRef = useRef(null)
 
   useEffect(() => {
     fetchData();
@@ -28,6 +29,7 @@ const App = () => {
     fetchData();
     const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
     setColor(randomColor);
+    buttonRef.current.blur(); // removing focus
   }
 
   function tweet() {
@@ -42,8 +44,8 @@ const App = () => {
         <p>{quotes.content}</p>
         <span>-{quotes.author}</span>
           <div className='group'>
-          <div  href={url} onClick={tweet} style={{color:color}}><FaTwitterSquare style={{height:'48px',width:'48px'}} /></div>
-          <button onClick={handleClick} style={{backgroundColor:color}}>Next Quote</button>
+          <div  className='icon' href={url} onClick={tweet} style={{color:color}}><FaTwitterSquare style={{height:'100%',width:'100%'}} /></div>
+          <button onClick={handleClick} ref={buttonRef} style={{backgroundColor:color}}>Next Quote</button>
           </div>
       </div>
     </div>
