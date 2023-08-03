@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from "react";
 import "./App.scss";
 import { FaTwitterSquare, FaQuoteLeft } from "react-icons/fa";
 
@@ -15,6 +15,7 @@ const App = () => {
     encodeURIComponent(Tweet_Text) +
     "&hashtags=" +
     encodeURIComponent(HASHTAGS_TO_INCLUDE);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     fetchData();
