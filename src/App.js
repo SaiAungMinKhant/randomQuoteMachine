@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from 'react';
 import "./App.scss";
 import { FaTwitterSquare, FaQuoteLeft } from "react-icons/fa";
 
@@ -34,6 +34,7 @@ const App = () => {
     fetchData();
     const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
     setColor(randomColor);
+    buttonRef.current.blur(); // removing focus
   }
 
   function tweet() {
