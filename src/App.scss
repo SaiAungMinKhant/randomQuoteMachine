@@ -1,14 +1,16 @@
-html, body{
+html,
+body {
   margin: 0;
 }
 
-.app{
+.app {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.5s;
 
-  .box{
+  .box {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -19,47 +21,53 @@ html, body{
     border-radius: 15px;
     transition-duration: 0.5s;
 
-    p{
-  font-size: 30px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    p {
+      font-size: 30px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
-    span{
-    text-align: center;
-    padding: 10px;
+
+    span {
+      text-align: center;
+      padding: 10px;
     }
-    .group{
+
+    .group {
       display: flex;
       text-align: center;
       justify-content: space-between;
       margin-top: 20px;
-      .icon{
-        height: 48px;
-        width: 48px;
-        transition: 0.3s;
-        &:hover{
-          transform: scale(1.1);
+
+      .icon {
+        display: flex;
+        flex-direction: row;
+        .icons {
+          height: 48px;
+          width: 48px;
+          transition: 0.5s;
+          &:hover {
+            transform: scale(1.1);
+          }
+          &:focus {
+            transform: scale(0.9);
+          }
         }
       }
-      button{
+
+      button {
         width: 100px;
         border: none;
         color: white;
         border-radius: 5px;
         transition: 0.5s;
-        &:hover{
+
+        &:hover {
           transform: scale(1.1);
         }
-        &:focus{
+
+        &:focus {
           transform: scale(0.9);
         }
       }
     }
   }
 }
-
-
-
-
-
-
-

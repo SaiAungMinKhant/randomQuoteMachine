@@ -1,20 +1,29 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./App.scss";
-import { FaTwitterSquare, FaQuoteLeft } from "react-icons/fa";
+import { FaQuoteLeft, FaFacebookSquare} from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 const App = () => {
   const [quotes, setQuotes] = useState({});
-  const [color, setColor] = useState("#415E54");
-  const Website_URL = "http://localhost:3000/";
-  const Tweet_Text = quotes.content;
+  const [color, setColor] = useState("#000000");
+  const Website_URL = "https://random-quote-machine-rouge.vercel.app/";
+  const Share_Text = quotes.content;
   const HASHTAGS_TO_INCLUDE = quotes.author;
-  const url =
+
+  const twitterShareURL =
     "https://twitter.com/intent/tweet?url=" +
     encodeURIComponent(Website_URL) +
     "&text=" +
-    encodeURIComponent(Tweet_Text) +
+    encodeURIComponent(Share_Text) +
     "&hashtags=" +
     encodeURIComponent(HASHTAGS_TO_INCLUDE);
+
+  const fbShareURL =
+    "https://www.facebook.com/dialog/share?" +
+    "app_id=1093372268341863" +
+    "&display=popup" +
+    "&href=" + encodeURIComponent(Website_URL);
+
   const buttonRef = useRef(null);
 
   useEffect(() => {
@@ -39,7 +48,11 @@ const App = () => {
   }
 
   function tweet() {
-    window.open(url, "_blank");
+    window.open(twitterShareURL, "_blank");
+  }
+
+  function shareOnFacebook() {
+    window.open(fbShareURL, "_blank");
   }
 
   return (
@@ -49,10 +62,14 @@ const App = () => {
         <p>{quotes.content}</p>
         <span>-{quotes.author}</span>
         <div className="group">
-          <div href={url} onClick={tweet} style={{ color: color }}>
-            <FaTwitterSquare style={{ height: "48px", width: "48px" }} />
+          <div className="icon" style={{ color: color }}>
+            <FaSquareXTwitter className="icons" href={twitterShareURL} onClick={tweet} />
+            <FaFacebookSquare className="icons" href={fbShareURL} onClick={shareOnFacebook} />
           </div>
-          <button onClick={handleClick} style={{ backgroundColor: color }}>
+          <button
+            ref={buttonRef}
+            onClick={handleClick}
+            style={{ backgroundColor: color }}>
             Next Quote
           </button>
         </div>
