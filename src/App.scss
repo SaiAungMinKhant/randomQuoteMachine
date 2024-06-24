@@ -16,14 +16,17 @@ body {
     text-align: center;
     justify-content: center;
     background-color: white;
-    width: 600px;
+    min-width: 300px;
+    max-width: 600px;
+    height: 300px;
     padding: 80px 30px;
     border-radius: 15px;
     transition-duration: 0.5s;
 
     p {
       font-size: 30px;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     }
 
     span {
